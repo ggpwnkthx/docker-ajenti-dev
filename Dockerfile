@@ -5,8 +5,4 @@ RUN apt-get install -y nodejs
 RUN npm -g install bower babel-cli babel-preset-es2015 babel-plugin-external-helpers less coffee-script angular-gettext-cli angular-gettext-tools
 RUN apt-get install -y gettext
 RUN pip install ajenti-dev-multitool
-COPY /plugin /plugin
-WORKDIR /plugin
-RUN ajenti-dev-multitool --bower install
-RUN ajenti-dev-multitool --rebuild
-ENTRYPOINT ["ajenti-dev-multitool", "--run-dev"]
+COPY /entrypoint.sh /entrypoint.sh
