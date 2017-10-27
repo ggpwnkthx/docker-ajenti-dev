@@ -20,5 +20,4 @@ docker rm coach_ajenti_dev
 docker run -d \
 	--name coach_ajenti_dev \
 	--net=host \
-	--privileged \
 	coach/ajenti:dev
