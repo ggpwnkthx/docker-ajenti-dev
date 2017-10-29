@@ -2,7 +2,7 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
-id=$(docker images | grep "coach/ajenti" | grep "latest" | awk '{print $3}')
+id=$(docker images | grep "coach/ajenti" | grep "dev" | awk '{print $3}')
 
 docker kill coach_ajenti_dev
 docker rm coach_ajenti_dev
