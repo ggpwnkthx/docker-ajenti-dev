@@ -6,3 +6,4 @@ RUN npm -g install bower babel-cli babel-preset-es2015 babel-plugin-external-hel
 RUN apt-get install -y gettext
 RUN pip install ajenti-dev-multitool
 COPY /entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
