@@ -1,6 +1,14 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
+
+id=$(docker images | grep "coach/ajenti" | grep "latest" | awk '{print $3}')
+
+docker kill coach_ajenti_dev
+docker rm coach_ajenti_dev
+docker rmi $id
+docker build -t "coach/ajenti:dev" .
+
 if [ ! -z $1 ]
 then
 	if [ ! -z $2 ]
@@ -10,9 +18,6 @@ then
 		mv $2 plugin
 	fi
 fi
-docker build -t "coach/ajenti:dev" .
-docker kill coach_ajenti_dev
-docker rm coach_ajenti_dev
 docker run -d \
 	--name coach_ajenti_dev \
 	--net=host \
